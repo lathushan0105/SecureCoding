@@ -1,2 +1,2 @@
 all:
-	gcc -o main a.py
+	gcc -o main sample.c
