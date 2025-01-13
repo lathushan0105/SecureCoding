@@ -11,8 +11,6 @@ int main(int argc, char** argv) {
         fprintf(stderr, "Please provide the address of a file as an input.\n");
         return -1;
     }
-
-    char *filename = argv[1];
   
     char cmd[BUFSIZE] = "wc -c < ";
     strcat(cmd, filename);
