@@ -13,10 +13,10 @@ int main(int argc, char** argv) {
     }
     char cmd[BUFSIZE] = "wc -c < ";
 
-    if (strlen(cmd) + strlen(argv[1]) + 1 > BUFSIZE){
-        return 0;
+    if (strlen(cmd) + strlen(argv[1]) + 1 < BUFSIZE){
+        strcat(cmd, argv[1]);
+        system(cmd);
     }
-   
-    strcat(cmd, argv[1]);
-    system(cmd);
+    
+    return 0;
 }
