@@ -12,11 +12,9 @@ int main(int argc, char** argv) {
         return -1;
     }
     char cmd[BUFSIZE] = "wc -c < ";
-    char filename[BUFSIZE];
 
     if (strlen(cmd) + strlen(argv[1]) < BUFSIZE){
-        sscanf(argv[1], "%s", filename);
-        strncat(cmd, filename, BUFSIZE);
+        strncat(cmd, argv[1], BUFSIZE);
         system(cmd);
     }
     
