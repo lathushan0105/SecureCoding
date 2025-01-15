@@ -12,7 +12,7 @@ int main(int argc, char** argv) {
         return -1;
     }
     
-    char *runCMD[BUFSIZE] = {"wc", "-c"};
+    char *runCMD[4] = {"wc", "-c"};
 
     if (strlen(runCMD[0]) + strlen(runCMD[1]) + strlen(argv[1]) < BUFSIZE){
         runCMD[2] = argv[1];
