@@ -11,12 +11,12 @@ int main(int argc, char** argv) {
         fprintf(stderr, "Please provide the address of a file as an input.\n");
         return -1;
     }
-    char cmd[BUFSIZE] = "wc -c < ";
-    char *runCMD[BUFSIZE] = {"wc", "-c", "<"};
+    
+    char *runCMD[BUFSIZE] = {"wc", "-c"};
 
-    if (strlen(cmd) + strlen(argv[1]) < BUFSIZE){
-        runCMD[3] = argv[1];
-        runCMD[4] = NULL;
+    if (strlen(runCMD[0]) + strlen(runCMD[1]) + strlen(argv[1]) < BUFSIZE){
+        runCMD[2] = argv[1];
+        runCMD[3] = NULL;
         execve("/usr/bin/wc", runCMD, NULL);
         perror("execve failed");
     }
