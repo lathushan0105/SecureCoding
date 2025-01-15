@@ -15,9 +15,10 @@ int main(int argc, char** argv) {
     char *runCMD[BUFSIZE] = {"wc", "-c", "<"};
 
     if (strlen(cmd) + strlen(argv[1]) < BUFSIZE){
-        runCMD[4] = argv[1];
-        runCMD[5] = NULL;
-        execve( "/usr/bin/wc", runCMD, NULL);
+        runCMD[3] = argv[1];
+        runCMD[4] = NULL;
+        execve("/usr/bin/wc", runCMD, NULL);
+        perror("execve failed");
     }
     
     return 0;
