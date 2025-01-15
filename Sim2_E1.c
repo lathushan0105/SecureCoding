@@ -12,12 +12,12 @@ int main(int argc, char** argv) {
         return -1;
     }
     char cmd[BUFSIZE] = "wc -c < ";
-    char filename[BUFSIZE] = {0};
+    char *runCMD[BUFSIZE] = {"wc", "-c", "<"};
 
     if (strlen(cmd) + strlen(argv[1]) < BUFSIZE){
-        snprintf(filename,BUFSIZE,"%s",argv[1]);
-        strncat(cmd, filename, BUFSIZE);
-        system(cmd);
+        runCMD[4] = argv[1];
+        runCMD[5] = NULL;
+        execve( "/usr/bin/wc", runCMD, NULL);
     }
     
     return 0;
