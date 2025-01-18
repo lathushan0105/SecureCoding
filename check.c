@@ -20,18 +20,7 @@ int read_file(const char *filename) {
 }
 
 int main() {
-    char filename[BUFSIZE];
-
-    printf("Enter the name of the file to read: ");
-    if (fgets(filename, BUFSIZE, stdin) != NULL) {
-        // Remove the trailing newline character if present
-        char *newline = strchr(filename, '\n');
-        if (newline) {
-            *newline = '\0';
-        }
-    }
-
-    if (read_file(filename) == -1) {
+    if (read_file("Hello.txt") == -1) {
         printf("Error reading the file.\n");
     }
 
