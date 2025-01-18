@@ -21,5 +21,5 @@ int main(int argc, char** argv) {
         perror("execve failed");
     }
     
-    return 0;
+    return -1;
 }
