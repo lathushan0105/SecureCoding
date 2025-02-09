@@ -1,3 +1,5 @@
+#define _GNU_SOURCE
+#include <unistd.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,7 +13,15 @@ int main(int argc, char** argv) {
         fprintf(stderr, "Please provide the address of a file as an input.\n");
         return -1;
     }
-    char cmd[BUFSIZE] = "wc -c < ";
-    strcat(cmd, argv[1]);
-    system(cmd);
+    
+    char *runCMD[4] = {"wc", "-c"};
+
+    if (strlen(runCMD[0]) + strlen(runCMD[1]) + strlen(argv[1]) < BUFSIZE){
+        runCMD[2] = argv[1];
+        runCMD[3] = NULL;
+        execve("/usr/bin/wc", runCMD, NULL);
+        perror("execve failed");
+    }
+    
+    return -1;
 }
