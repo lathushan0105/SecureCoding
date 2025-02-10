@@ -15,7 +15,7 @@ int main(int argc, char **argv) {
         return -1;
     }
 
-    char fileName = argv[1];
+    char *fileName = argv[1];
     // Open the file for reading
     int fd = open(fileName, O_RDONLY);
     if (fd < 0) {
