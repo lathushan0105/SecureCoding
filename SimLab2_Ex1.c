@@ -15,8 +15,9 @@ int main(int argc, char **argv) {
         return -1;
     }
 
+    char fileName = argv[1];
     // Open the file for reading
-    int fd = open(argv[1], O_RDONLY);
+    int fd = open(fileName, O_RDONLY);
     if (fd < 0) {
         perror("Failed to open the file");
         return -1;
